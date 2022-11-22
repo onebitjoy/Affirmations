@@ -15,11 +15,11 @@
  */
 package com.example.affirmations
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -28,7 +28,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AffirmationsTheme() {
-                AffirmationAppPreview()
+                AffirmationApp()
             }
         }
     }
@@ -67,18 +67,25 @@ fun AffirmationApp() {
 private fun AffirmationList(
     affirmationList: List<Affirmation>, modifier: Modifier = Modifier
 ) {
-    Column() {
+
+    Column(
+        modifier = Modifier
+            .background(Color(0xFFB4ECDA))
+    ) {
 
         // The text will stick to the Top
         Text(
             text = "LazyColumn App",
             style = MaterialTheme.typography.h3,
             textAlign = TextAlign.Center,
-            modifier = modifier.padding(16.dp)
+            modifier = modifier
+                .padding(16.dp)
         )
         // Lazy List
         LazyColumn(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .background(Color(0xFFD5E7D9))
+                .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             //[items()] is kinda similar to  forEach function
